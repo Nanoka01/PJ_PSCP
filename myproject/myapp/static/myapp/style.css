@@ -1,0 +1,38 @@
+/* CSS for phone frame */
+.phone-frame {
+    width: 400px;
+    height: 700px;
+    border: 16px solid #333;
+    border-radius: 36px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
