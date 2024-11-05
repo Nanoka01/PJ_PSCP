@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page 3</title>
-  <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
-</head>
-<body>
-  <div class="phone-frame">
-    <div class="container">
+{% extends "base.html" %}
+
+{% block content %}
       <h2>โจทย์ หน้า 10</h2>
       <p>เลือกคำตอบที่คุณต้องการ</p>
 
@@ -21,7 +12,4 @@
         <button type="submit" name="choice" value="choice4" class="btn">ช้อยส์ที่ 4</button>
         <button type="submit" name="choice" value="choice5" class="btn">ช้อยส์ที่ 5</button>
       </form>
-    </div>
-  </div>
-</body>
-</html>
+{% endblock %}

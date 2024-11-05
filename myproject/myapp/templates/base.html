@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KMITL Fable:Golden Ticket</title>
+  <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+</html>
