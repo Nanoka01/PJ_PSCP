@@ -1,15 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>โจทย์ หน้า 4</h2>
-  <p>เลือกคำตอบที่คุณต้องการ</p>
+<style>
+.all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-size: cover;
+  background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+}
+.choicelist {
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  button {
+    font-size: small;
+    font-weight: bold;
+    width: 90%;
+    max-width: 400px;
+    padding: 5px 10px;
+    text-align: center;
+  }
+}
+.question {
+  font-weight: bolder;
+  text-align: center;
+}
+</style>
 
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit" name="choice" value="choice1" class="btn">ช้อยส์ที่ 1</button>
-    <button type="submit" name="choice" value="choice2" class="btn">ช้อยส์ที่ 2</button>
-    <button type="submit" name="choice" value="choice3" class="btn">ช้อยส์ที่ 3</button>
-    <button type="submit" name="choice" value="choice4" class="btn">ช้อยส์ที่ 4</button>
-    <button type="submit" name="choice" value="choice5" class="btn">ช้อยส์ที่ 5</button>
-  </form>
+<div class="all">
+<div class="question">
+  <p>เลือกคำตอบที่คุณต้องการ</p>
+</div>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="choicelist">
+    <button type="submit" name="choice" value="choice1" class="btn btn-info">ปลูกถั่ววิเศษที่สามารถเติมโตได้อย่างรวดเร็ว เพื่อให้มันชอนไชและทำลายเพดานคุกใต้ดิน</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info">แฮ็กเครื่องสแกนมือแบบดิจิทัล เพื่อควบคุมและปลดล็อกประตูคุก</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info">เข้าไปประเมิณอาการเจ็บของคุณเห้และปฐมพยาบาลเบื้องต้นให้ เพื่อให้คุณเห้ช่วยคิดหาวิธีออกจากคุก</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info">ชำแหละตะกร้าของคุณหมีอิ่มเอมแล้ำนำวัสดูที่ได้ มาสร้างอุปกรณ์ไขกุญแจ เพื่อปลดล็อกประตูคุก</button>
+    <button type="submit" name="choice" value="choice5" class="btn btn-info">ผสมสารละลายกรดที่มีฤทธิ์กัดกร่อนรุนแรงจากสารเคมีที่อยู่ในกระเป๋าคุณ เพื่อละลายแท่งเหล็กกรง</button>
+  </div>
+</form>
+</div>
+
 {% endblock %}
