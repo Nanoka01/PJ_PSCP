@@ -16,10 +16,10 @@
 
   .story-container {
     background-color: rgba(51, 51, 51, 0.9);
+    background-size: cover;
     color: #eee;
     padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto;
     text-align: left;
     overflow-y: auto;
@@ -47,7 +47,7 @@
   }
 
   .character img {
-    max-width: 150px;  /* กำหนดความกว้างสูงสุดของภาพ */
+    max-width: 150px;
     height: auto;
   }
 
@@ -80,10 +80,10 @@
 
 <div class="all">
   <div class="story-container">
-      <h2>สถานการณ์ที่ 1: การสร้างสะพานเพื่อไปสถานีนลาดกระบัง</h2>
-      <p><span class="highlight">มีตัวละคร:</span> คุณ, คุณแห่, และเหล่าวิศวกรทั้ง 5 คน</p>
-      <p><strong>สถานที่:</strong> นอกวิทยาลัยลาดกระบัง (ก่อนจะเข้าสาลอล. ได้)</p>
-      <p><strong>ภารกิจ:</strong> คุณกับ Mr. Silver Golden จำเป็นจะต้องส่งฝ่ายเสร็จดำเนินการให้ได้ภายในเวลากำหนดโดยไม่เสียค่าใช้จ่ายเพิ่มเติม คุณจะต้องไปที่สถานีลาดกระบังให้ได้โดยสะพานที่เชื่อมต่อไปที่นลาดกระบังนั้นแข็งแรง คุณมีทางเลือกให้เลือกคือ</p>
+      <h2>สถานการณ์ที่ 1: การสร้างสะพานเพื่อไปสถาบันลาดกระบัง</h2>
+      <p><span class="highlight">ตัวละคร:</span> คุณ, คุณแห่, และเหล่าวิศวกรทั้ง 5 คน</p>
+      <p><strong>สถานที่:</strong> นอกรั้วสถาบันลาดกระบัง (ก่อนจะเข้าสจล. ได้)</p>
+      <p><strong>ภารกิจ:</strong> คุณกับ Mr. Silver Golden ต้องฝ่าอุปสรรคแรกไปให้ได้ก่อนเพราะสะพานที่เชื่อมไปหาลาดกระบังนั้นพังลง ซึ่งเหล่าวิศวกรก็กำลังก่อสร้างใหม่แต่พวกเขาเหล่านั้นกลับดูไร้เรี่ยวแรงและดูท้อแท้</p>
       
       <div class="character">
         <img src="{% static 'myapp/images/mr_silver_golden.png' %}" alt="คุณแห่ | Mr. Silver Golden">
