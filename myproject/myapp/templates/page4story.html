@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}  <!-- เพิ่มบรรทัดนี้ -->
+
+{% block content %}
+<style>
+  .all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-size: cover;
+    background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+  }
+
+  .story-container {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #eee;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .story-container h2 {
+    color: #ffcc00;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .story-container p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #ccc;
+  }
+
+  .highlight {
+    color: #ffcc00;
+  }
+
+  .character {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .character p {
+    font-style: italic;
+    color: #ffcc00;
+  }
+
+  .btn-primary {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="all">
+  <div class="story-container">
+      <h2>สถานการณ์ที่ 4: ไอทีโรบอท</h2>
+      <p><span class="highlight">มีตัวละคร:</span> : คุณ, เหล่าไอทีโรบอททั้ง 4 ตน</p>
+      <p><strong>สถานที่:</strong> : ห้องของคุณหมีอิ่มเอม, ลานกลางแจ้ง, ตันเจี้ยน</p>
+      <p><strong>ภารกิจ:</strong> :คุณหยิบตะกร้าและมุ่งหน้าไปหาคุณหมีอิ่มเอมและคุณเห้ แต่พบว่าทั้งสองหายไป ทันใดนั้น คุณรู้สึกถึงบางอย่างอยู่ข้างหลัง เมื่อหันไปก็เห็นหุ่นยนต์ประหลาดจ้องคุณ ก่อนที่หนึ่งในนั้นจะยิงลำแสงจากตาทำให้คุณสลบไป คุณฟื้นขึ้นมาในคุกและพบคุณเห้นอนพิงกำแพง เขาบาดเจ็บเล็กน้อยและกล่าวว่า “เราต้องออกไปจากที่นี่ ที่แห่งนี้กำลังตกอยู่ในอันตราย”</p>
+      
+      <div class="character">
+        <img src="{% static 'images/mr_silver_golden.png' %}" alt="คุณแห่ | Mr. Silver Golden">
+
+      </div>
+
+      <form method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn-primary">ถัดไป</button>
+      </form>
+  </div>
+</div>
+{% endblock %}

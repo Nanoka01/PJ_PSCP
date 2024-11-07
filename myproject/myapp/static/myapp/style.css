@@ -1,13 +1,14 @@
-/* CSS for phone frame */
-/* .phone-frame {
+.phone-frame {
     width: 400px;
     height: 700px;
     border: 16px solid #333;
     border-radius: 36px;
     padding: 20px;
     background-color: #f0f0f0;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the frame */
     text-align: center;
+    overflow-y: auto; /* Enable scroll if content overflows */
+    box-shadow: none; /* Remove any shadow to avoid visual layering */
 }
 
 .container {
@@ -16,82 +17,26 @@
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #333;
 }
 
 .btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
+    display: block;
+    width: 100%; /* ขยายปุ่มให้เต็มความกว้าง */
+    margin: 10px 0;
+    padding: 8px 12px;
+    font-size: 0.9em;
     color: #fff;
     background-color: #007bff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+    white-space: normal; /* ทำให้ข้อความขึ้นบรรทัดใหม่ตามเนื้อที่ */
+    word-wrap: break-word; /* ตัดบรรทัดอัตโนมัติ */
 }
 
 .btn-warning {
-    background-color: #ffc107;
-} */
-
-/* * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    background-color: #0800ff;
 }
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f5;
-}
-
-.device {
-    width: 400px;
-    height: 700px;
-    background-color: #333;
-    border-radius: 30px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.camera {
-    width: 50px;
-    height: 10px;
-    background-color: #555;
-    border-radius: 5px;
-    margin-top: 15px;
-}
-
-.screen {
-    background-color: #fff;
-    width: 95%;
-    height: 90%;
-    margin-top: 15px;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    padding-bottom: 15px;
-}
-
-.button {
-    width: 10px;
-    height: 10px;
-    background-color: #555;
-    border-radius: 50%;
-} */
