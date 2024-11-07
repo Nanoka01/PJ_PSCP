@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}  <!-- เพิ่มบรรทัดนี้ -->
+{% load static %}
 
 {% block content %}
 <style>
@@ -22,6 +22,7 @@
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
+    overflow-y: auto;
   }
 
   .story-container h2 {
@@ -43,6 +44,11 @@
   .character {
     text-align: center;
     margin-top: 20px;
+  }
+
+  .character img {
+    max-width: 150px;
+    height: auto;
   }
 
   .character p {
@@ -85,8 +91,7 @@
         ไม่ทันรีรอรีบเข้าไปดูแมวตัวนั้นทันที คุณจะทำ ..</p>
       
       <div class="character">
-        <img src="{% static 'images/mr_silver_golden.png' %}" alt="คุณแห่ | Mr. Silver Golden">
-
+        <img src="{% static 'myapp/images/ch5.png' %}" alt="cat">
       </div>
 
       <form method="post">

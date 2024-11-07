@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}  <!-- เพิ่มบรรทัดนี้ -->
+{% load static %}
 
 {% block content %}
 <style>
@@ -22,6 +22,7 @@
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
+    overflow-y: auto;
   }
 
   .story-container h2 {
@@ -43,6 +44,11 @@
   .character {
     text-align: center;
     margin-top: 20px;
+  }
+
+  .character img {
+    max-width: 150px;
+    height: auto;
   }
 
   .character p {
@@ -80,8 +86,7 @@
       <p><strong>ภารกิจ:</strong> :คุณได้พบกับคุณหมีที่ปลื้มในตัวคุณมาก เธอขอให้คุณช่วยไปหยิบตะกร้าอาหารจากห้องหอพักให้ เมื่อคุณตอบตกลง เธอจึงยื่นคีย์การ์ดให้และโบกมือลา คุณเห้ก็โบกมือส่งลาเช่นกัน ขณะเดินมาถึงหน้าแผงลิฟต์และกำลังจะหยิบคีย์การ์ดออกจากกระเป๋า คุณกลับพบว่ากระเป๋าข้างทั้งสองข้างว่างเปล่า คุณจะทำอย่างไรต่อไปเพื่อแก้ปัญหานี้?</p>
       
       <div class="character">
-        <img src="{% static 'images/mr_silver_golden.png' %}" alt="คุณแห่ | Mr. Silver Golden">
-
+        <img src="{% static 'myapp/images/BEAR FOOD INDUSTRY.png' %}" alt="คุณหมีอิ่มเอม">
       </div>
 
       <form method="post">

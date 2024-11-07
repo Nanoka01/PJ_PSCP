@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}  <!-- เพิ่มบรรทัดนี้ -->
+{% load static %}
 
 {% block content %}
 <style>
@@ -22,6 +22,7 @@
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
+    overflow-y: auto;
   }
 
   .story-container h2 {
@@ -43,11 +44,17 @@
   .character {
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 
-  .character p {
-    font-style: italic;
-    color: #ffcc00;
+  .character img {
+    max-width: 100px;  /* กำหนดความกว้างสูงสุดของแต่ละภาพ */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
   .btn-primary {
@@ -75,13 +82,15 @@
 <div class="all">
   <div class="story-container">
       <h2>สถานการณ์ที่ 4: ไอทีโรบอท</h2>
-      <p><span class="highlight">มีตัวละคร:</span> : คุณ, เหล่าไอทีโรบอททั้ง 4 ตน</p>
-      <p><strong>สถานที่:</strong> : ห้องของคุณหมีอิ่มเอม, ลานกลางแจ้ง, ตันเจี้ยน</p>
-      <p><strong>ภารกิจ:</strong> :คุณหยิบตะกร้าและมุ่งหน้าไปหาคุณหมีอิ่มเอมและคุณเห้ แต่พบว่าทั้งสองหายไป ทันใดนั้น คุณรู้สึกถึงบางอย่างอยู่ข้างหลัง เมื่อหันไปก็เห็นหุ่นยนต์ประหลาดจ้องคุณ ก่อนที่หนึ่งในนั้นจะยิงลำแสงจากตาทำให้คุณสลบไป คุณฟื้นขึ้นมาในคุกและพบคุณเห้นอนพิงกำแพง เขาบาดเจ็บเล็กน้อยและกล่าวว่า “เราต้องออกไปจากที่นี่ ที่แห่งนี้กำลังตกอยู่ในอันตราย”</p>
+      <p><span class="highlight">มีตัวละคร:</span> คุณ, เหล่าไอทีโรบอททั้ง 4 ตน</p>
+      <p><strong>สถานที่:</strong> ห้องของคุณหมีอิ่มเอม, ลานกลางแจ้ง, ตันเจี้ยน</p>
+      <p><strong>ภารกิจ:</strong> คุณหยิบตะกร้าและมุ่งหน้าไปหาคุณหมีอิ่มเอมและคุณเห้ แต่พบว่าทั้งสองหายไป ทันใดนั้น คุณรู้สึกถึงบางอย่างอยู่ข้างหลัง เมื่อหันไปก็เห็นหุ่นยนต์ประหลาดจ้องคุณ ก่อนที่หนึ่งในนั้นจะยิงลำแสงจากตาทำให้คุณสลบไป คุณฟื้นขึ้นมาในคุกและพบคุณเห้นอนพิงกำแพง เขาบาดเจ็บเล็กน้อยและกล่าวว่า “เราต้องออกไปจากที่นี่ ที่แห่งนี้กำลังตกอยู่ในอันตราย”</p>
       
       <div class="character">
-        <img src="{% static 'images/mr_silver_golden.png' %}" alt="คุณแห่ | Mr. Silver Golden">
-
+        <img src="{% static 'myapp/images/ijudge1.jpg' %}" alt="หุ่นยนต์ 1">
+        <img src="{% static 'myapp/images/ijudge2.jpg' %}" alt="หุ่นยนต์ 2">
+        <img src="{% static 'myapp/images/ijudge3.jpg' %}" alt="หุ่นยนต์ 3">
+        <img src="{% static 'myapp/images/ijudge4.jpg' %}" alt="หุ่นยนต์ 4">
       </div>
 
       <form method="post">
