@@ -21,7 +21,17 @@
             position: relative;
             z-index: 1;
         }
-
+        #toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: auto;
+            z-index: 10;
+        }
+        #toggle:hover {
+            transform: scale(1.2);
+        }
     }
     @media only screen and (min-width: 480px) {
         * {
@@ -70,6 +80,18 @@
             position: relative;
             z-index: 1;
         }
+        
+        #toggle {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 40px;
+            height: auto;
+            z-index: 10;
+        }
+        #toggle:hover {
+            transform: scale(1.2);
+        }
 
         .buttons {
             display: flex;
@@ -102,5 +124,7 @@
         </div>
     </div>
 
+    {% block script %}
+    {% endblock %}
 </body>
 </html>

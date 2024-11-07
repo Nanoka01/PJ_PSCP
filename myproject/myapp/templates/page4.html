@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <style>
@@ -45,13 +46,30 @@
 <form method="post">
   {% csrf_token %}
   <div class="choicelist">
-    <button type="submit" name="choice" value="choice1" class="btn btn-info">ปลูกถั่ววิเศษที่สามารถเติมโตได้อย่างรวดเร็ว เพื่อให้มันชอนไชและทำลายเพดานคุกใต้ดิน</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info">แฮ็กเครื่องสแกนมือแบบดิจิทัล เพื่อควบคุมและปลดล็อกประตูคุก</button>
-    <button type="submit" name="choice" value="choice3" class="btn btn-info">เข้าไปประเมิณอาการเจ็บของคุณเห้และปฐมพยาบาลเบื้องต้นให้ เพื่อให้คุณเห้ช่วยคิดหาวิธีออกจากคุก</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info">ชำแหละตะกร้าของคุณหมีอิ่มเอมแล้ำนำวัสดูที่ได้ มาสร้างอุปกรณ์ไขกุญแจ เพื่อปลดล็อกประตูคุก</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info">ผสมสารละลายกรดที่มีฤทธิ์กัดกร่อนรุนแรงจากสารเคมีที่อยู่ในกระเป๋าคุณ เพื่อละลายแท่งเหล็กกรง</button>
+    <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">ปลูกถั่ววิเศษที่สามารถเติมโตได้อย่างรวดเร็ว เพื่อให้มันชอนไชและทำลายเพดานคุกใต้ดิน</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">แฮ็กเครื่องสแกนมือแบบดิจิทัล เพื่อควบคุมและปลดล็อกประตูคุก</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">เข้าไปประเมิณอาการเจ็บของคุณเห้และปฐมพยาบาลเบื้องต้นให้ เพื่อให้คุณเห้ช่วยคิดหาวิธีออกจากคุก</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">ชำแหละตะกร้าของคุณหมีอิ่มเอมแล้ำนำวัสดูที่ได้ มาสร้างอุปกรณ์ไขกุญแจ เพื่อปลดล็อกประตูคุก</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">ผสมสารละลายกรดที่มีฤทธิ์กัดกร่อนรุนแรงจากสารเคมีที่อยู่ในกระเป๋าคุณ เพื่อละลายแท่งเหล็กกรง</button>
   </div>
 </form>
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/mixkit-modern-technology-select-3124.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-info").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}

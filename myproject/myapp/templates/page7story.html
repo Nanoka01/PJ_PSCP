@@ -1,7 +1,25 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
   <h2>หน้าเรื่องราว 7</h2>
   <p>เนื้อหาของหน้า story ก่อนเข้าสู่หน้า page1</p>
   <a href="{% url 'page7' %}" class="btn">ถัดไป</a>
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/mixkit-modern-technology-select-3124.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-primary").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <style>
@@ -45,13 +46,30 @@
 <form method="post">
   {% csrf_token %}
   <div class="choicelist">
-    <button type="submit" name="choice" value="choice1" class="btn btn-info">รีบพุ่งเข้าไปหาเพราะมันน่ารักมาก!!</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info">เข้าไปอุ้มเจ้าหนูเรืองแสงมารีดเอาพลังงานไฟฟ้ามาใช้</button>
-    <button type="submit" name="choice" value="choice3" class="btn btn-info">คิดว่าจะนำไฟฟ้าของมันไปใช้ประโยชน์อะไรดี..</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info">ลองสังเกตอาการผิดปกติของเจ้าหนูเรืองแสงไปสักพัก...</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info">คิดว่าจะลองจับมันไปทำเป็นเมนูอะไรดี</button>
+    <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">รีบพุ่งเข้าไปหาเพราะมันน่ารักมาก!!</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">เข้าไปอุ้มเจ้าหนูเรืองแสงมารีดเอาพลังงานไฟฟ้ามาใช้</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">คิดว่าจะนำไฟฟ้าของมันไปใช้ประโยชน์อะไรดี..</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">ลองสังเกตอาการผิดปกติของเจ้าหนูเรืองแสงไปสักพัก...</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">คิดว่าจะลองจับมันไปทำเป็นเมนูอะไรดี</button>
   </div>
 </form>
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/mixkit-modern-technology-select-3124.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-info").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}
