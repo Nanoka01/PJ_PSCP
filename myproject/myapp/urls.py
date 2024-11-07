@@ -13,7 +13,6 @@ urlpatterns = [
     path('page7/', views.page7, name='page7'),
     path('page8/', views.page8, name='page8'),
     path('page9/', views.page9, name='page9'),
-    path('page10/', views.page10, name='page10'),
     path('last_page/', views.last_page, name='last_page'),
     path('reset_choices/', views.reset_choices, name='reset_choices'),
 ]

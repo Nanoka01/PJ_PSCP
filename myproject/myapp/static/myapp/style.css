@@ -1,5 +1,5 @@
 /* CSS for phone frame */
-.phone-frame {
+/* .phone-frame {
     width: 400px;
     height: 700px;
     border: 16px solid #333;
@@ -35,4 +35,63 @@ h2 {
 
 .btn-warning {
     background-color: #ffc107;
+} */
+
+/* * {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f5;
+}
+
+.device {
+    width: 400px;
+    height: 700px;
+    background-color: #333;
+    border-radius: 30px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.camera {
+    width: 50px;
+    height: 10px;
+    background-color: #555;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.screen {
+    background-color: #fff;
+    width: 95%;
+    height: 90%;
+    margin-top: 15px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    padding-bottom: 15px;
+}
+
+.button {
+    width: 10px;
+    height: 10px;
+    background-color: #555;
+    border-radius: 50%;
+} */

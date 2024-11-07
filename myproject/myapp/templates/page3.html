@@ -1,15 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>โจทย์ หน้า 3</h2>
-  <p>เลือกคำตอบที่คุณต้องการ</p>
+<style>
+.all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-size: cover;
+  background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+}
+.choicelist {
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  button {
+    font-size: small;
+    font-weight: bold;
+    width: 90%;
+    max-width: 400px;
+    padding: 5px 10px;
+    text-align: center;
+  }
+  button:hover {
+    transform: scale(1.05);
+  }
+}
+.question {
+  font-weight: bolder;
+  text-align: center;
+  font-size: larger;
+}
+</style>
 
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit" name="choice" value="choice1" class="btn">ช้อยส์ที่ 1</button>
-    <button type="submit" name="choice" value="choice2" class="btn">ช้อยส์ที่ 2</button>
-    <button type="submit" name="choice" value="choice3" class="btn">ช้อยส์ที่ 3</button>
-    <button type="submit" name="choice" value="choice4" class="btn">ช้อยส์ที่ 4</button>
-    <button type="submit" name="choice" value="choice5" class="btn">ช้อยส์ที่ 5</button>
-  </form>
+<div class="all">
+<div class="question">
+  <p>คุณจะทำอย่างไรเพื่อแก้ปัญหานี้</p>
+</div>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="choicelist">
+    <button type="submit" name="choice" value="choice1" class="btn btn-info">รอจังหวะที่มีคนมาใช้งานลิฟต์แล้วจึงใช้จังหวะนั้นขึ้นไปพร้อมกัน</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info">วาดรูปภาพที่คล้ายกับรูปบนคีย์การ์ดอย่างรวดเร็ว ให้เพียงพอที่จะใช้แทนคียร์การ์ดตัวจริงได้</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info">งัดแผงวงจรของลิฟต์และบายพาสวงจร เพื่อให้ลิฟต์ใช้งานได้โดยไม่ต้องใช้คีย์การ์ด</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info">ทำอาหารแซ่บๆไปเลี้ยงพนักงานที่อยู่รอบๆแล้วขอยืมคีย์การ์ดเป็นค่าตอบแทน</button>
+    <button type="submit" name="choice" value="choice5" class="btn btn-info">ใช้วิธีที่ตรงไปตรงมา โดยไปทำคีย์การ์ดใบใหม่ที่สำนักงานบัตรลิฟต์</button>
+  </div>
+</form>
+</div>
+
 {% endblock %}

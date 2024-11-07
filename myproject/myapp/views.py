@@ -33,8 +33,6 @@ def page8(request):
 def page9(request):
     return process_page(request, 9)
 
-def page10(request):
-    return process_page(request, 10)
 
 def process_page(request, page_number):
     if request.method == 'POST':
@@ -52,7 +50,7 @@ def process_page(request, page_number):
         request.session.modified = True
         
         # ถ้าเป็น page10 ให้ไปที่ last_page
-        if page_number == 10:
+        if page_number == 9:
             return redirect('last_page')
         else:
             return redirect(f'page{page_number + 1}')  # ไปยังหน้าถัดไป
