@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 def home(request):
     if 'choices_count' not in request.session:
-        request.session['choices_count'] = [0, 0, 0, 0, 0]
+        request.session['choices_count'] = [0, 0, 0, 0]
     return render(request, 'home.html')
 
 def page1story(request):
@@ -94,8 +94,6 @@ def process_page(request, page_number):
             request.session['choices_count'][2] += 1
         elif selected_choice == 'choice4':
             request.session['choices_count'][3] += 1
-        elif selected_choice == 'choice5':
-            request.session['choices_count'][4] += 1
         request.session.modified = True
 
         # ถ้าเป็น page10 ให้ไปที่ last_page
@@ -107,7 +105,7 @@ def process_page(request, page_number):
     return render(request, f'page{page_number}.html')
 
 def last_page(request):
-    choices_count = request.session.get('choices_count', [0, 0, 0, 0, 0])
+    choices_count = request.session.get('choices_count', [0, 0, 0, 0])
     max_choice = max(choices_count)
     max_choice_index = choices_count.index(max_choice)
     
@@ -117,5 +115,5 @@ def last_page(request):
     })
 
 def reset_choices(request):
-    request.session['choices_count'] = [0, 0, 0, 0, 0]
+    request.session['choices_count'] = [0, 0, 0, 0]
     return redirect('home')

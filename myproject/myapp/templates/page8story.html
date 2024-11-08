@@ -2,9 +2,100 @@
 {% load static %}
 
 {% block content %}
-  <h2>หน้าเรื่องราว 8</h2>
-  <p>เนื้อหาของหน้า story ก่อนเข้าสู่หน้า page1</p>
-  <a href="{% url 'page8' %}" class="btn">ถัดไป</a>
+<style>
+  .all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-size: cover;
+    background-image: url("https://avl.co.th/wp-content/uploads/2020/07/AVL_Project_nstda-auditorium_09.jpeg");
+    background-position: center;
+  }
+
+  .story-container {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #eee;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .story-container h2 {
+    color: #ffcc00;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .story-container p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #ccc;
+  }
+
+  .highlight {
+    color: #ffcc00;
+  }
+
+  .character {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .character p {
+    font-style: italic;
+    color: #ffcc00;
+  }
+
+  .character img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .btn-primary {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="all">
+  <div class="story-container">
+      <h2>สถานการณ์ที่ 8: มิสเตอร์บัสเตอร์คอร์น</h2>
+      <p><span class="highlight">ตัวละคร:</span> คุณ คุณเห้และมิสเตอร์บัสเตอร์คอร์น</p>
+      <p><strong>สถานที่:</strong> โรงภาพยนตร์ (IT Auditorium)</p>
+      <p><strong>ภารกิจ:</strong> หลังจากปราบหุ่นยนต์ลงได้ คุณเห้นั้นได้เชิญคุณให้ไปที่หอประชุมไอที ขณะที่คุณกำลังดูภาพยนต์เรื่องสั้นเรื่องหนึ่ง จู่ ๆ ก็มีตัวมาสคอตพุ่งออกมาตรงหน้าแล้วบอกคุณว่า “ยินดีด้วยที่เจ้าจัดการกับพวกไอทีโรบอทแล้ว พวกนั้นทำให้สถานที่นี้หมองหม่นและไร้ชีวิตชีวา เพื่อเป็นการตอบแทน ข้าจะมอบโอกาสให้แก่ในการสอบ Final ณ ที่สถาบันแห่งนี้ แต่ก่อนที่ตะเริ่มสอบ ข้าอยากทราบว่าเจ้าอยากที่จะทำงานเกี่ยวกับอะไร”</p>
+      
+      <div class="character">
+        <img src="{% static 'myapp/images/buttercorn.png' %}" alt="bigkachuuu">
+        <p>มิสเตอร์บัสเตอร์คอร์น | Mister Buttercorn</p>
+      </div>
+
+      <form method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn-primary" onclick="playAudio();">ไปต่อ</button>
+      </form>
+  </div>
+</div>
 {% endblock %}
 
 {% block script %}
@@ -23,4 +114,3 @@
   audio.load();
 </script>
 {% endblock %}
-

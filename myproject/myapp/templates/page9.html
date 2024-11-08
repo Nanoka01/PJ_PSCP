@@ -11,7 +11,8 @@
   height: 100vh;
   text-align: center;
   background-size: cover;
-  background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+  background-image: url("{% static 'myapp/images/story9bg.png' %}");
+  background-position: center;
 }
 .choicelist {
   justify-content: center;
@@ -29,28 +30,29 @@
   }
   button:hover {
     transform: scale(1.05);
+    background-color: aqua;
   }
 }
 .question {
   font-weight: bolder;
   text-align: center;
   font-size: larger;
+  color: rgb(0, 0, 0);
 }
 </style>
 
 <div class="all">
 <div class="question">
-  <p>โจทย์ หน้า 9</p>
+  <p>คุณจะเลือกอะไรติดตัวไปด้วย</p>
 </div>
 
 <form method="post">
   {% csrf_token %}
   <div class="choicelist">
-    <button type="submit" name="choice" value="choice1" class="btn btn-info">1</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info">2</button>
-    <button type="submit" name="choice" value="choice3" class="btn btn-info">3</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info">4</button>
-    <button type="submit" name="choice" value="choice1" class="btn btn-info">5</button>
+    <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">ปากกาสีหรือดินสอหลากสี</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">เครื่องคิดเลขแบบวิทยาศาสตร์</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">สมุดจดที่เต็มไปด้วยบันทึกย่อและสูตรการผลิต</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">โมเดลโครงสร้างร่างกายหรือตารางธาตุ</button>
   </div>
 </form>
 </div>

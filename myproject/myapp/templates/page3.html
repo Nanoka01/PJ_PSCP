@@ -30,6 +30,7 @@
   }
   button:hover {
     transform: scale(1.05);
+    background-color: aqua;
   }
 }
 .question {
@@ -48,10 +49,10 @@
   {% csrf_token %}
   <div class="choicelist">
     <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">รอจังหวะที่มีคนมาใช้งานลิฟต์แล้วจึงใช้จังหวะนั้นขึ้นไปพร้อมกัน</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">วาดรูปภาพที่คล้ายกับรูปบนคีย์การ์ดอย่างรวดเร็ว ให้เพียงพอที่จะใช้แทนคียร์การ์ดตัวจริงได้</button>
-    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">งัดแผงวงจรของลิฟต์และบายพาสวงจร เพื่อให้ลิฟต์ใช้งานได้โดยไม่ต้องใช้คีย์การ์ด</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">ทำอาหารแซ่บๆไปเลี้ยงพนักงานที่อยู่รอบๆแล้วขอยืมคีย์การ์ดเป็นค่าตอบแทน</button>
-    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">ใช้วิธีที่ตรงไปตรงมา โดยไปทำคีย์การ์ดใบใหม่ที่สำนักงานบัตรลิฟต์</button>
+    <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">วาดรูปภาพที่คล้ายกับรูปบนคีย์การ์ดอย่างรวดเร็ว ให้เพียงพอที่จะใช้แทนคียร์การ์ดตัวจริงได้</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">งัดแผงวงจรของลิฟต์และบายพาสวงจร เพื่อให้ลิฟต์ใช้งานได้โดยไม่ต้องใช้คีย์การ์ด</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">ทำอาหารแซ่บๆไปเลี้ยงพนักงานที่อยู่รอบๆแล้วขอยืมคีย์การ์ดเป็นค่าตอบแทน</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">ใช้วิธีที่ตรงไปตรงมา โดยไปทำคีย์การ์ดใบใหม่ที่สำนักงานบัตรลิฟต์</button>
   </div>
 </form>
 </div>
