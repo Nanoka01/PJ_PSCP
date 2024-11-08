@@ -156,7 +156,7 @@
       </div>
       
       <div class="content">
-        <a href="{% url 'page1story' %}" class="begin">
+        <a href="{% url 'page1story' %}" class="begin" onclick="">
           <h2>My KMITL Fable
             Golden Ticket</h2>
           <button class="start btn btn-warning" onclick="playAudio();">เริ่มต้นการผจญภัย</button>
@@ -190,11 +190,8 @@
 
 {% block script %}
 <script>
-  const audio = new Audio("{% static 'myapp/sound/begin.mp3' %}");
-  audio.load();
-
   function playAudio() {
-    audio.currentTime = 0;
+    const audio = new Audio("{% static 'myapp/sound/begin.mp3' %}");
     audio.play();
   }
 </script>
