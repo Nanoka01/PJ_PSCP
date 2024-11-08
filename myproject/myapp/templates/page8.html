@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <style>
@@ -10,7 +11,8 @@
   height: 100vh;
   text-align: center;
   background-size: cover;
-  background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+  background-image: url("https://avl.co.th/wp-content/uploads/2020/07/AVL_Project_nstda-auditorium_09.jpeg");
+  background-position: center;
 }
 .choicelist {
   justify-content: center;
@@ -28,30 +30,49 @@
   }
   button:hover {
     transform: scale(1.05);
+    background-color: aqua;
   }
 }
 .question {
   font-weight: bolder;
   text-align: center;
   font-size: larger;
+  color: rgb(0, 0, 0);
 }
 </style>
 
 <div class="all">
 <div class="question">
-  <p>โจทย์ หน้า 8</p>
+  <p>คุณเลือกที่จะทำงานเกี่ยวกับ..</p>
 </div>
 
 <form method="post">
   {% csrf_token %}
   <div class="choicelist">
-    <button type="submit" name="choice" value="choice1" class="btn btn-info">1</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info">2</button>
-    <button type="submit" name="choice" value="choice3" class="btn btn-info">3</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info">4</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info">5</button>
+    <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">พัฒนาทักษะมนุษย์ การสื่อสาร และการจัดการในสังคม</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">ออกแบบ ทดสอบ และสร้างเครื่องจักร โครงสร้างและกระบวนการต่างๆ โดยใช้คณิตศาสตร์และวิทยาศาสตร์</button>
+    <button type="submit" name="choice" value="choice2" class="btn btn-info" onclick="playAudio();">พัฒนาเทคโนโลยีคอมพิวเตอร์ ซึ่งเน้นการบำรุงรักษาระบบหรือโครงสร้างทางเทคโนโลยีที่ซับซ้อน</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">ผลิตทรัพยากรและอาหารสำหรับชีวิตประจำวัน รวมถึงการจัดการกระบวนการและนวัตกรรมเพื่อเพิ่มประสิทธิภาพการผลิตทางการเกษตรและอาหาร</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">ดูแลสุขภาพร่างกายและจิตใจของมนุษย์ ซึ่งครอบคลุมตั้งแต่การวิจัยทางวิทยาศาสตร์พื้นฐาน ไปจนถึงการรักษาและดูแลสุขภาพ</button>
   </div>
 </form>
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/question.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-info").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}

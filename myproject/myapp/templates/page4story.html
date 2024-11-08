@@ -11,15 +11,14 @@
     height: 100vh;
     text-align: center;
     background-size: cover;
-    background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+    background-image: url("{% static 'myapp/images/story4bg.jpg' %}");
   }
 
   .story-container {
     background-color: rgba(51, 51, 51, 0.9);
     color: #eee;
     padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto;
     text-align: left;
     overflow-y: auto;
@@ -46,15 +45,18 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 10px;
     flex-wrap: wrap;
   }
 
   .character img {
-    max-width: 100px;  /* กำหนดความกว้างสูงสุดของแต่ละภาพ */
-    height: auto;
+    height: 110px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .character p {
+    font-style: italic;
+    color: #ffcc00;
   }
 
   .btn-primary {
@@ -76,27 +78,45 @@
 
   .btn-primary:hover {
     transform: scale(1.05);
+    background-color: #0056b3;
   }
 </style>
 
 <div class="all">
   <div class="story-container">
       <h2>สถานการณ์ที่ 4: ไอทีโรบอท</h2>
-      <p><span class="highlight">มีตัวละคร:</span> คุณ, เหล่าไอทีโรบอททั้ง 4 ตน</p>
-      <p><strong>สถานที่:</strong> ห้องของคุณหมีอิ่มเอม, ลานกลางแจ้ง, ตันเจี้ยน</p>
-      <p><strong>ภารกิจ:</strong> คุณหยิบตะกร้าและมุ่งหน้าไปหาคุณหมีอิ่มเอมและคุณเห้ แต่พบว่าทั้งสองหายไป ทันใดนั้น คุณรู้สึกถึงบางอย่างอยู่ข้างหลัง เมื่อหันไปก็เห็นหุ่นยนต์ประหลาดจ้องคุณ ก่อนที่หนึ่งในนั้นจะยิงลำแสงจากตาทำให้คุณสลบไป คุณฟื้นขึ้นมาในคุกและพบคุณเห้นอนพิงกำแพง เขาบาดเจ็บเล็กน้อยและกล่าวว่า “เราต้องออกไปจากที่นี่ ที่แห่งนี้กำลังตกอยู่ในอันตราย”</p>
+      <p><span class="highlight">มีตัวละคร:</span> คุณและเหล่าไอทีโรบอททั้ง 4 ตน</p>
+      <p><strong>สถานที่:</strong> ห้องของคุณหมีอิ่มเอม, ลานกลางแจ้ง, ดันเจี้ยน</p>
+      <p><strong>ภารกิจ:</strong> คุณหยิบตะกร้าและมุ่งหน้าไปหาคุณหมีอิ่มเอมและคุณเห้ แต่พบว่าทั้งสองหายไป ทันใดนั้น คุณรู้สึกถึงบางอย่างอยู่ข้างหลัง เมื่อหันไปก็เห็นหุ่นยนต์ประหลาดจ้องคุณ ก่อนที่หนึ่งในนั้นจะยิงลำแสงจากตาทำให้คุณสลบไป คุณฟื้นขึ้นมาในคุกและพบคุณเห้นอนพิงกำแพง เขาบาดเจ็บเล็กน้อยและกล่าวว่า “เราต้องรีบหนีออกไปจากที่นี่ ที่แห่งนี้กำลังตกอยู่ในอันตราย”</p>
       
       <div class="character">
-        <img src="{% static 'myapp/images/ijudge1.jpg' %}" alt="หุ่นยนต์ 1">
-        <img src="{% static 'myapp/images/ijudge2.jpg' %}" alt="หุ่นยนต์ 2">
-        <img src="{% static 'myapp/images/ijudge3.jpg' %}" alt="หุ่นยนต์ 3">
-        <img src="{% static 'myapp/images/ijudge4.jpg' %}" alt="หุ่นยนต์ 4">
+        <img src="{% static 'myapp/images/itrobot1.png' %}" alt="หุ่นยนต์ 1">
+        <img src="{% static 'myapp/images/itrobot2.png' %}" alt="หุ่นยนต์ 2">
+        <img src="{% static 'myapp/images/itrobot3.png' %}" alt="หุ่นยนต์ 3">
+        <p>เหล่าไอทีโรบอท | The IT Robots</p>
       </div>
 
       <form method="post">
           {% csrf_token %}
-          <button type="submit" class="btn-primary">ถัดไป</button>
+          <button type="submit" class="btn-primary" onclick="playAudio();">ไปต่อ</button>
       </form>
   </div>
 </div>
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/start.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-primary").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}

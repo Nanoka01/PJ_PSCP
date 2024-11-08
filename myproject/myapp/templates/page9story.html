@@ -1,7 +1,116 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <h2>หน้าเรื่องราว 9</h2>
-  <p>เนื้อหาของหน้า story ก่อนเข้าสู่หน้า page1</p>
-  <a href="{% url 'page9' %}" class="btn">ถัดไป</a>
+<style>
+  .all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-size: cover;
+    background-image: url("{% static 'myapp/images/story9bg.png' %}");
+    background-position: center;
+  }
+
+  .story-container {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #eee;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .story-container h2 {
+    color: #ffcc00;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .story-container p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #ccc;
+  }
+
+  .highlight {
+    color: #ffcc00;
+  }
+
+  .character {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .character p {
+    font-style: italic;
+    color: #ffcc00;
+  }
+
+  .character img {
+    width: 350px;
+    height: 200px;
+  }
+
+  .btn-primary {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="all">
+  <div class="story-container">
+      <h2>สถานการณ์ที่ 9 (FINAL): ข้อสอบครั้งสุดท้าย</h2>
+      <p><span class="highlight">ตัวละคร:</span> คุณ คุณเห้และอาจารย์</p>
+      <p><strong>สถานที่:</strong> ห้องสอบที่ขาวโพน</p>
+      <p><strong>ภารกิจ:</strong> คุณได้ถูกวาร์ปหลังจากที่ตอบคำถามเสร็จ ตอนนี้คุณก็ได้ปรากฎอยู่ที่หน้าห้องสอบโดยอาจารย์คุมสอบนั้นบอกว่าให้เอาไอเท็มพิเศษอะไรก็ได้ 1 ชิ้นติดตัวเข้าไปในห้องสอบ แต่เขานั้นไม่ได้บอกว่าเมื่อเข้าไปสอบแล้วจะต้องเจอกับข้อสอบอะไร</p>
+      
+      <div class="character">
+        <img src="{% static 'myapp/images/professor.png' %}" alt="bigkachuuu">
+        <p>อาจารย์ | The professor</p>
+      </div>
+
+      <form method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn-primary" onclick="playAudio();">ไปต่อ</button>
+      </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/start.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-primary").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <style>
@@ -49,10 +50,12 @@
   }
 
   .group {
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
   }
 
   .group-title {
@@ -60,19 +63,16 @@
     color: #ffcc00;
     font-weight: bold;
     margin-bottom: 10px;
-    text-align: center;
   }
 
   .item {
     font-size: 1em;
     color: #ccc;
-    margin: 8px 0;
-    padding-left: 15px;
-    text-align: center;
+    margin-top: 15px;
   }
 
   .btn-primary {
-    display: inline-block;
+    display: block;
     width: 100%;
     max-width: 200px;
     margin: 20px auto 0;
@@ -97,13 +97,13 @@
 
 <div class="all">
   <div class="story-container">
-      <h2>ผลสรุป</h2>
-      <p>คุณอยู่ในกลุ่มที่ <span class="highlight">{{ max_choice_index|add:1 }}</span></p>
+      <h2>ยินดีด้วย</h2>
+      <p>นี่คือคณะที่เหมาะสมกับคุณ</p>
 
       {% if max_choice_index == 0 %}
         <div class="group">
-          <p class="item">สถาปัตยกรรม, ครุศาสตร์</p>
-          <p class="item">บริหารธุรกิจ, ศิลปศาสตร์</p>
+          <p class="item">สถาปัตยกรรม ครุศาสตร์</p>
+          <p class="item">บริหารธุรกิจ ศิลปศาสตร์</p>
         </div>
       {% elif max_choice_index == 1 %}
         <div class="group">
@@ -117,7 +117,7 @@
         </div>
       {% elif max_choice_index == 3 %}
         <div class="group">
-          <p class="item">วิทยาศาสตร์, แพทยศาสตร์</p>
+          <p class="item">วิทยาศาสตร์ แพทยศาสตร์</p>
           <p class="item">ทันตแพทยศาสตร์</p>
         </div>
       {% endif %}
@@ -125,4 +125,21 @@
       <a href="{% url 'reset_choices' %}" class="btn-primary">เริ่มต้นใหม่</a>
   </div>
 </div>
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/start.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-primary").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}

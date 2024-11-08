@@ -11,15 +11,15 @@
     height: 100vh;
     text-align: center;
     background-size: cover;
-    background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+    background-image: url("{% static 'myapp/images/story5bg.jpg' %}");
+    background-position: center;
   }
 
   .story-container {
     background-color: rgba(51, 51, 51, 0.9);
     color: #eee;
     padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto;
     text-align: left;
     overflow-y: auto;
@@ -47,7 +47,7 @@
   }
 
   .character img {
-    max-width: 150px;
+    max-width: 265px;
     height: auto;
   }
 
@@ -75,29 +75,47 @@
 
   .btn-primary:hover {
     transform: scale(1.05);
+    background-color: #0056b3;
   }
 </style>
 
 <div class="all">
   <div class="story-container">
       <h2>สถานการณ์ที่ 5 : ช่วยแมวยักษ์</h2>
-      <p><span class="highlight">มีตัวละคร:</span> :เราและคุณเห้ , แมวยักษ์น</p>
-      <p><strong>สถานที่:</strong> :ภายใน้นเจี้ยน</p>
-      <p><strong>ภารกิจ:</strong> :หลังจากที่ออกมาจากคุกดันเจี้ยนกับคุณเห้ คุณก็ได้ไป
+      <p><span class="highlight">มีตัวละคร:</span> คุณ คุณเห้และแมวยักษ์</p>
+      <p><strong>สถานที่:</strong> ภายในดันเจี้ยน</p>
+      <p><strong>ภารกิจ:</strong> หลังจากที่ออกมาจากคุกดันเจี้ยนกับคุณเห้ คุณก็ได้ไป
         พับกบ แฮร่ พบกับแมวสีฟ้าตัวใหญ่ที่มีหกขาเหมือนแมลง !! นอน
         อยู่บนกองอาหารขนาดมหีมา แมวตัวนั้น ได้หันหน้ามาพร้อมกับ
         อาหารที่เต็มปากพร้อมพูดเสียงอู้อี้ว่า "ไออ้ออ้ายอ้วยอ้วย ออนอี้
-        อั้นแอ้มอวมอาก" ใครก็ได้ช่วยด้วย ตอนนี้แก้มฉันบวมมาก คุณ
-        ไม่ทันรีรอรีบเข้าไปดูแมวตัวนั้นทันที คุณจะทำ ..</p>
+        อั้นแอ้มอวมอาก" ใครก็ได้ช่วยด้วย ตอนนี้แก้มฉันบวมมาก</p>
       
       <div class="character">
-        <img src="{% static 'myapp/images/ch5.png' %}" alt="cat">
+        <img src="{% static 'myapp/images/83131344866 (1).png' %}" alt="cat">
+        <p>แมวยักษ์ | Giga cat</p>
       </div>
 
       <form method="post">
           {% csrf_token %}
-          <button type="submit" class="btn-primary">ถัดไป</button>
+          <button type="submit" class="btn-primary" onclick="playAudio();">ไปต่อ</button>
       </form>
   </div>
 </div>
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/start.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-primary").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <style>
@@ -10,7 +11,8 @@
   height: 100vh;
   text-align: center;
   background-size: cover;
-  background-image: url("https://i.pinimg.com/736x/97/91/ca/9791ca58d20a20026d503fa5c5a214f4.jpg");
+  background-image: url("{% static 'myapp/images/story2bg.jpg' %}");
+  background-position: center;
 }
 .choicelist {
   justify-content: center;
@@ -28,6 +30,7 @@
   }
   button:hover {
     transform: scale(1.05);
+    background-color: aqua;
   }
 }
 .question {
@@ -45,13 +48,30 @@
 <form method="post">
   {% csrf_token %}
   <div class="choicelist">
-    <button type="submit" name="choice" value="choice1" class="btn btn-info">เข้าหาผู้คนเหล่านั้น พูดคุยด้วยความเห็นอกเห็นใจ แลกเปลี่ยนเรื่องราว ทำความเข้าใจปัญหาของพวกเขาและแนะนำวิธีการสร้างกำลังใจ</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info">สร้างสีสันและความสดใสโดยการวาดภาพจิตรกรรมตามฝาผนังและตกแต่งบริเวณโดยรอบให้มีความสวยงาม เพื่อช่วยผ่อนคลายจิตใจ</button>
-    <button type="submit" name="choice" value="choice3" class="btn btn-info">ศึกษาหาสาเหตุทางการแพทย์หรือทางจิตวิทยาของอาการเหล่านั้น และวินิจฉัย วางแผนการรักษา เพื่อช่วยรักษาพวกเขา</button>
-    <button type="submit" name="choice" value="choice4" class="btn btn-info">ปลูกต้นไม้และดอกไม้หลากหลายชนิด โดยเลือกหลากหลายสายพันธุ์และมีความสอดคล้องกับสิ่งแวดล้อมในลาดกระบัง เพื่อเพิ่มความสวยงาม น่าดึงดูด</button>
-    <button type="submit" name="choice" value="choice2" class="btn btn-info">ตั้งบูธขายอาหาร เพื่อเสิร์ฟอาหารที่แสนอร่อย ซึ่งจะช่วยดึงดูดผู้คนให้มารวมตัวกันและสังสรรค์ สร้างความสุขทางกายและใจ</button>
+    <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">เข้าหาผู้คนเหล่านั้น พูดคุยด้วยความเห็นอกเห็นใจ แลกเปลี่ยนเรื่องราว ทำความเข้าใจปัญหาของพวกเขาและแนะนำวิธีการสร้างกำลังใจ</button>
+    <button type="submit" name="choice" value="choice1" class="btn btn-info" onclick="playAudio();">สร้างสีสันและความสดใสโดยการวาดภาพจิตรกรรมตามฝาผนังและตกแต่งบริเวณโดยรอบให้มีความสวยงาม เพื่อช่วยผ่อนคลายจิตใจ</button>
+    <button type="submit" name="choice" value="choice4" class="btn btn-info" onclick="playAudio();">ศึกษาหาสาเหตุทางการแพทย์หรือทางจิตวิทยาของอาการเหล่านั้น และวินิจฉัย วางแผนการรักษา เพื่อช่วยรักษาพวกเขา</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">ปลูกต้นไม้และดอกไม้หลากหลายชนิด โดยเลือกหลากหลายสายพันธุ์และมีความสอดคล้องกับสิ่งแวดล้อมในลาดกระบัง เพื่อเพิ่มความสวยงาม น่าดึงดูด</button>
+    <button type="submit" name="choice" value="choice3" class="btn btn-info" onclick="playAudio();">ตั้งบูธขายอาหาร เพื่อเสิร์ฟอาหารที่แสนอร่อย ซึ่งจะช่วยดึงดูดผู้คนให้มารวมตัวกันและสังสรรค์ สร้างความสุขทางกายและใจ</button>
   </div>
 </form>
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script>
+  const audio = new Audio("{% static 'myapp/sound/question.wav' %}");
+
+  audio.addEventListener("canplaythrough", function() {
+    document.querySelectorAll(".btn-info").forEach(button => {
+      button.addEventListener("click", function() {
+        audio.currentTime = 0;
+        audio.play();
+      });
+    });
+  });
+
+  audio.load();
+</script>
 {% endblock %}
